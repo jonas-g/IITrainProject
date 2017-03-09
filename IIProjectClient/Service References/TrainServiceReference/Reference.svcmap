@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="91977c02-e196-46c6-b85d-7b9692aad1a2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50431/TrainService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TrainService.xsd" MetadataType="Schema" ID="8dff20f2-6f65-43e9-a4e9-08258e3c1931" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TrainService.disco" MetadataType="Disco" ID="55fb8d8c-c22c-428b-8d98-771666ac06e5" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?disco" />
+    <MetadataFile FileName="TrainService1.xsd" MetadataType="Schema" ID="42953fdc-ac49-42e7-a278-d0523037416b" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TrainService2.xsd" MetadataType="Schema" ID="fdaceaa2-4f34-4719-a58d-1c04167e421e" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TrainService.wsdl" MetadataType="Wsdl" ID="6a337976-c06a-4112-ad14-b2e618aa6894" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

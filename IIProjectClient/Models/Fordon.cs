@@ -15,15 +15,6 @@ namespace IIProjectClient.Models
         public string Underkategori { get; set; }
         public Godkännande Godkännande { get; set; }
 
-        public bool Godkänd()
-        {
-            if (Godkännande.Slut < DagensDatum)  //Chansning!
-            {
-                return false;
-            } else {
-                return true;
-            }
-            
-        }
+    
     }
 }

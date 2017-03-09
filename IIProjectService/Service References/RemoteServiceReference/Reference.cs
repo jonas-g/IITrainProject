@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IIProjectClient.IITrainService {
+namespace IIProjectService.RemoteServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IITrainService.INamingService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RemoteServiceReference.INamingService")]
     public interface INamingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INamingService/GetVehicle", ReplyAction="http://tempuri.org/INamingService/GetVehicleResponse")]
@@ -35,12 +35,12 @@ namespace IIProjectClient.IITrainService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface INamingServiceChannel : IIProjectClient.IITrainService.INamingService, System.ServiceModel.IClientChannel {
+    public interface INamingServiceChannel : IIProjectService.RemoteServiceReference.INamingService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class NamingServiceClient : System.ServiceModel.ClientBase<IIProjectClient.IITrainService.INamingService>, IIProjectClient.IITrainService.INamingService {
+    public partial class NamingServiceClient : System.ServiceModel.ClientBase<IIProjectService.RemoteServiceReference.INamingService>, IIProjectService.RemoteServiceReference.INamingService {
         
         public NamingServiceClient() {
         }
@@ -87,7 +87,7 @@ namespace IIProjectClient.IITrainService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IITrainService.IEpcisEventService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RemoteServiceReference.IEpcisEventService")]
     public interface IEpcisEventService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEpcisEventService/GetFilenames", ReplyAction="http://tempuri.org/IEpcisEventService/GetFilenamesResponse")]
@@ -110,12 +110,12 @@ namespace IIProjectClient.IITrainService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IEpcisEventServiceChannel : IIProjectClient.IITrainService.IEpcisEventService, System.ServiceModel.IClientChannel {
+    public interface IEpcisEventServiceChannel : IIProjectService.RemoteServiceReference.IEpcisEventService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class EpcisEventServiceClient : System.ServiceModel.ClientBase<IIProjectClient.IITrainService.IEpcisEventService>, IIProjectClient.IITrainService.IEpcisEventService {
+    public partial class EpcisEventServiceClient : System.ServiceModel.ClientBase<IIProjectService.RemoteServiceReference.IEpcisEventService>, IIProjectService.RemoteServiceReference.IEpcisEventService {
         
         public EpcisEventServiceClient() {
         }

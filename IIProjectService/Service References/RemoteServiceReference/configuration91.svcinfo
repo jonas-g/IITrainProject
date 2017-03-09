@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="+uL+44hHOdW1C5V2FQxzEnV+kww=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="2aoR9ym1Hjyy2S9LENlfsqJI6KY=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_INamingService">
       <properties>
@@ -251,7 +251,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_INamingService" contract="IITrainService.INamingService" bindingType="wsHttpBinding" address="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc/NamingService" bindingConfiguration="WSHttpBinding_INamingService">
+    <endpoint name="WSHttpBinding_INamingService" contract="RemoteServiceReference.INamingService" bindingType="wsHttpBinding" address="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc/NamingService" bindingConfiguration="WSHttpBinding_INamingService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc/NamingService</serializedValue>
@@ -266,7 +266,7 @@
           <serializedValue>WSHttpBinding_INamingService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>IITrainService.INamingService</serializedValue>
+          <serializedValue>RemoteServiceReference.INamingService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>
@@ -336,7 +336,7 @@
         </property>
       </properties>
     </endpoint>
-    <endpoint name="WSHttpBinding_IEpcisEventService" contract="IITrainService.IEpcisEventService" bindingType="wsHttpBinding" address="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc/EventService" bindingConfiguration="WSHttpBinding_IEpcisEventService">
+    <endpoint name="WSHttpBinding_IEpcisEventService" contract="RemoteServiceReference.IEpcisEventService" bindingType="wsHttpBinding" address="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc/EventService" bindingConfiguration="WSHttpBinding_IEpcisEventService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc/EventService</serializedValue>
@@ -351,7 +351,7 @@
           <serializedValue>WSHttpBinding_IEpcisEventService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>IITrainService.IEpcisEventService</serializedValue>
+          <serializedValue>RemoteServiceReference.IEpcisEventService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,13 +113,13 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.30506.0\lib\net40\WebMatrix.Data.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.30506.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -188,7 +189,7 @@
     <Compile Include="Models\Godkännande.cs" />
     <Compile Include="Models\Plats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\IITrainService\Reference.cs">
+    <Compile Include="Service References\TrainServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -267,10 +268,13 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <None Include="Service References\IITrainService\IIService.disco" />
-    <None Include="Service References\IITrainService\configuration91.svcinfo" />
-    <None Include="Service References\IITrainService\configuration.svcinfo" />
-    <None Include="Service References\IITrainService\Reference.svcmap">
+    <Content Include="Service References\TrainServiceReference\IIProjectClient.TrainServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\TrainServiceReference\TrainService.disco" />
+    <None Include="Service References\TrainServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\TrainServiceReference\configuration.svcinfo" />
+    <None Include="Service References\TrainServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -301,20 +305,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <None Include="Service References\IITrainService\IIService.wsdl" />
-    <None Include="Service References\IITrainService\IIService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\IITrainService\IIService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\IITrainService\IIService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\IITrainService\IIService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\Train\Index.cshtml" />
+    <None Include="Service References\TrainServiceReference\TrainService.wsdl" />
+    <None Include="Service References\TrainServiceReference\TrainService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrainServiceReference\TrainService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TrainServiceReference\TrainService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,7 +329,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\IITrainService\" />
+    <WCFMetadataStorage Include="Service References\TrainServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
