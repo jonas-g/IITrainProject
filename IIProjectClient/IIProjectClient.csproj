@@ -180,6 +180,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Fordon.cs" />
+    <Compile Include="Models\FordonsPassage.cs" />
+    <Compile Include="Models\Godkännande.cs" />
+    <Compile Include="Models\Plats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -286,7 +290,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Filters\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Telefonbok\" />
   </ItemGroup>
   <ItemGroup>
