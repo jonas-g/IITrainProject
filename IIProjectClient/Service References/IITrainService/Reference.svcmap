@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="281ba95d-34cb-4be7-a234-85e6373979d0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IIService.disco" MetadataType="Disco" ID="a4264ce2-ee7f-4676-87d5-10153a445ab0" SourceId="1" SourceUrl="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc?disco" />
+    <MetadataFile FileName="IIService.xsd" MetadataType="Schema" ID="4108d334-ca2b-4822-a72b-c58c04ab1501" SourceId="1" SourceUrl="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc?xsd=xsd0" />
+    <MetadataFile FileName="IIService1.xsd" MetadataType="Schema" ID="88d4d27b-2f6d-4607-b687-6296438537b9" SourceId="1" SourceUrl="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc?xsd=xsd2" />
+    <MetadataFile FileName="IIService2.xsd" MetadataType="Schema" ID="1b5a3437-fd19-4c29-a771-63aad239614b" SourceId="1" SourceUrl="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc?xsd=xsd1" />
+    <MetadataFile FileName="IIService.wsdl" MetadataType="Wsdl" ID="f4c5bdac-3f92-4dc6-a120-94975e35a53b" SourceId="1" SourceUrl="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc?wsdl" />
+    <MetadataFile FileName="IIService3.xsd" MetadataType="Schema" ID="06c85840-e47d-4481-8be0-a212f48a1931" SourceId="1" SourceUrl="http://dotnet4.im.uu.se/vsdev/matno755/1/IIService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
