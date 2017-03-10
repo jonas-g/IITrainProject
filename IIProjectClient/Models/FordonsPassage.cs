@@ -11,7 +11,7 @@ namespace IIProjectClient.Models
         public Fordon Fordonet { get; set; }
         public Plats Platsen { get; set; }
         public DateTime EventTid { get; set; }
-
+        //Magnus testar GIT!!
         public FordonsPassage()
         {
             XElement XXXXXXX = new XElement("", "");
