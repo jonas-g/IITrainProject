@@ -37,7 +37,7 @@ namespace IIProjectService
 
 
     }
-
+    //gå lös
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]

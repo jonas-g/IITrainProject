@@ -13,6 +13,9 @@ namespace IIProjectClient.Models
         public DateTime EventTime { get; set; }
 
         public VehiclePassage()
+       
+        //Magnus testar GIT!!
+        
         {
             XElement XXXXXXX = new XElement("", "");
         }
