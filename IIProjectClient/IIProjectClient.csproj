@@ -188,10 +188,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Fordon.cs" />
-    <Compile Include="Models\FordonsPassage.cs" />
-    <Compile Include="Models\Godkännande.cs" />
-    <Compile Include="Models\Plats.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehiclePassage.cs" />
+    <Compile Include="Models\Authorisation.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\TrainServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
