@@ -5,9 +5,9 @@ using System.Web;
 
 namespace IIProjectClient.Models
 {
-    public class Plats
+    public class Location
     {
-        public string PlatsEPC { get; set; }
-        public string PlatsNamn { get; set; }
+        public string EPC { get; set; }
+        public string Name { get; set; }
     }
 }

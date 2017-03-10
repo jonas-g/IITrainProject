@@ -5,9 +5,9 @@ using System.Web;
 
 namespace IIProjectClient.Models
 {
-    public class Godkännande
+    public class Authorisation
     {
-        public DateTime Start { get; set; }
-        public DateTime Slut { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

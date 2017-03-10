@@ -6,13 +6,13 @@ using System.Xml.Linq;
 
 namespace IIProjectClient.Models
 {
-    public class FordonsPassage
+    public class VehiclePassage
     {
-        public Fordon Fordonet { get; set; }
-        public Plats Platsen { get; set; }
-        public DateTime EventTid { get; set; }
+        public Vehicle Vehicle { get; set; }
+        public Location Location { get; set; }
+        public DateTime EventTime { get; set; }
 
-        public FordonsPassage()
+        public VehiclePassage()
         {
             XElement XXXXXXX = new XElement("", "");
         }
