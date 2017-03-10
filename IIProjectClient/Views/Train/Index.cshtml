@@ -3,43 +3,82 @@
 @{
     ViewBag.Title = "Index";
 }
+<header>
+<h2>Search</h2>
+</header>
+<body>
 
-<h2>Index</h2>
+@* Starttime, Datettime, rullista med alla platser, söka på fordon. *@
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FordonEPC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PlatsEPC)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PassageTid)
-        </th>
-        <th></th>
-    </tr>
+    <fieldset>
+        <legend>Search</legend>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FordonEPC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlatsEPC)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PassageTid)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+        <div class="editor-label">
+            <p>Sök fordon:</p>
+        </div>
+        <div class="editor-field">
+        @*    @Html.EditorFor(model => model.Fordonet) *@
+        @*    @Html.ValidationMessageFor(model => model.Fordonet) *@
+        </div>
+
+        <div class="editor-label">
+            <p>Start time</p>
+        </div>
+        <div class="editor-field">
+        @*    @Html.EditorFor(model => model.Start) *@
+        @*    @Html.ValidationMessageFor(model => model.Start) *@
+        </div>
+
+        <div class="editor-label">
+            <p>Stop time</p>
+        </div>
+        <div class="editor-field">
+        @*    @Html.EditorFor(model => model.Slut) *@
+        @*    @Html.ValidationMessageFor(model => model.Slut) *@
+        </div>
+
+        @Html.DropDownList("Passages", (SelectList)ViewBag.DropDownValues);
+        <p>
+            <input type="submit" value="Search" />
+        </p>
+    </fieldset>
 }
+    @*
+if(Model != null)
+{
+    <table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FordonEPC) 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlatsEPC) 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassageTid) 
+        </th>
+    </tr>
 
-</table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+              @*  @Html.DisplayFor(modelItem => item.FordonEPC) 
+            </td>
+            <td>
+             @*   @Html.DisplayFor(modelItem => item.PlatsEPC) 
+            </td>
+            <td>
+              @*  @Html.DisplayFor(modelItem => item.PassageTid) 
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            </td>
+        </tr>
+    } 
+    </table>
+}*@
+</body>

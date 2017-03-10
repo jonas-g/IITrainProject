@@ -11,6 +11,14 @@ namespace IIProjectClient.Controllers
         // GET: Train
         public ActionResult Index()
         {
+            List<SelectListItem> test = new List<SelectListItem>();
+
+            test.Add(new SelectListItem { Text = "Location 1" });
+            test.Add(new SelectListItem { Text = "Location 2" });
+            test.Add(new SelectListItem { Text = "Location 3" });
+
+            ViewBag.DropDownValues = new SelectList(test);
+            ViewBag.Message = "Sök här";
             return View();
         }
 
