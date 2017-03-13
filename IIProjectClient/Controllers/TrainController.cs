@@ -4,29 +4,34 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Linq;
+using IIProjectClient.TrainServiceReference;
+using IIProjectClient.Models;
 
 namespace IIProjectClient.Controllers
 {
     public class TrainController : Controller
     {
-        TrainServiceReference.TrainServiceClient localService = new TrainServiceReference.TrainServiceClient();
-
+        TrainServiceClient localService = new TrainServiceClient();
+        
         public TrainController()
         {
-
+            
         }
-
+        
         // GET: Train
         public ActionResult Index()
         {
-            List<SelectListItem> test = new List<SelectListItem>();
+            //Nedan fixar en dropdown lista att välja locations ifrån.
+            List<string> allLocations = new List<string>();
+            XElement test = new XElement("Locations", localService.GetAllLocations());
 
-            test.Add(new SelectListItem { Text = "Location 1" });
-            test.Add(new SelectListItem { Text = "Location 2" });
-            test.Add(new SelectListItem { Text = "Location 3" });
+            foreach(var i in test.Descendants("Location").Elements("Name"))
+            {
+                allLocations.Add(i.Value);
+            }
 
-            ViewBag.DropDownValues = new SelectList(test);
-            ViewBag.Message = "Sök här";
+            ViewBag.DropDownValues = new SelectList(allLocations);
+
             return View();
         }
 

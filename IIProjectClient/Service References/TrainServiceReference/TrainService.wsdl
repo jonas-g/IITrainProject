@@ -4,35 +4,75 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:50431/TrainService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:50431/TrainService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:50431/TrainService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IIProjectService" />
+      <xsd:import schemaLocation="http://localhost:50431/TrainService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Xml.Linq" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ITrainService_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
+  <wsdl:message name="ITrainService_GetPassageInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassageInfo" />
   </wsdl:message>
-  <wsdl:message name="ITrainService_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
+  <wsdl:message name="ITrainService_GetPassageInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPassageInfoResponse" />
   </wsdl:message>
-  <wsdl:message name="ITrainService_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
+  <wsdl:message name="ITrainService_SaveToFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveToFile" />
   </wsdl:message>
-  <wsdl:message name="ITrainService_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
+  <wsdl:message name="ITrainService_SaveToFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveToFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvents" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetVehicle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicle" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetVehicle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVehicleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocation" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetAllLocations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocations" />
+  </wsdl:message>
+  <wsdl:message name="ITrainService_GetAllLocations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllLocationsResponse" />
   </wsdl:message>
   <wsdl:portType name="ITrainService">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/GetData" message="tns:ITrainService_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/GetDataResponse" message="tns:ITrainService_GetData_OutputMessage" />
+    <wsdl:operation name="GetPassageInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/GetPassageInfo" message="tns:ITrainService_GetPassageInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/GetPassageInfoResponse" message="tns:ITrainService_GetPassageInfo_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/GetDataUsingDataContract" message="tns:ITrainService_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/GetDataUsingDataContractResponse" message="tns:ITrainService_GetDataUsingDataContract_OutputMessage" />
+    <wsdl:operation name="SaveToFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/SaveToFile" message="tns:ITrainService_SaveToFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/SaveToFileResponse" message="tns:ITrainService_SaveToFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/GetEvents" message="tns:ITrainService_GetEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/GetEventsResponse" message="tns:ITrainService_GetEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/GetVehicle" message="tns:ITrainService_GetVehicle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/GetVehicleResponse" message="tns:ITrainService_GetVehicle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/GetLocation" message="tns:ITrainService_GetLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/GetLocationResponse" message="tns:ITrainService_GetLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITrainService/GetAllLocations" message="tns:ITrainService_GetAllLocations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrainService/GetAllLocationsResponse" message="tns:ITrainService_GetAllLocations_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITrainService" type="tns:ITrainService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/ITrainService/GetData" style="document" />
+    <wsdl:operation name="GetPassageInfo">
+      <soap:operation soapAction="http://tempuri.org/ITrainService/GetPassageInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -40,8 +80,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/ITrainService/GetDataUsingDataContract" style="document" />
+    <wsdl:operation name="SaveToFile">
+      <soap:operation soapAction="http://tempuri.org/ITrainService/SaveToFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <soap:operation soapAction="http://tempuri.org/ITrainService/GetEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVehicle">
+      <soap:operation soapAction="http://tempuri.org/ITrainService/GetVehicle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocation">
+      <soap:operation soapAction="http://tempuri.org/ITrainService/GetLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllLocations">
+      <soap:operation soapAction="http://tempuri.org/ITrainService/GetAllLocations" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

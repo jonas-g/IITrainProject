@@ -20,13 +20,13 @@ namespace IIProjectService
         EpcisEventServiceClient epcisEventService = new EpcisEventServiceClient();
         NamingServiceClient namingService = new NamingServiceClient();
 
-        //public TrainService()
-        //{
-        //    DateTime start = new DateTime(2011, 03, 20);
-        //    DateTime stop = new DateTime(2011, 03, 28);
-        //    string loc = "urn:epc:id:sgln:735999271.000.13";
-        //    XElement svar = GetPassageInfo(start, stop, loc);
-        //}
+        public TrainService()
+        {
+          // DateTime start = new DateTime(2011, 03, 20);
+          // DateTime stop = new DateTime(2011, 03, 28);
+          // string loc = "urn:epc:id:sgln:735999271.000.13";
+          // XElement svar = GetPassageInfo(start, stop, loc);
+        }
 
         public XElement GetPassageInfo(DateTime fromDate, DateTime toDate, string epcLocation)
         {

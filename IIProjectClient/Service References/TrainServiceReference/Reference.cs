@@ -9,86 +9,47 @@
 //------------------------------------------------------------------------------
 
 namespace IIProjectClient.TrainServiceReference {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/IIProjectService")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="TrainServiceReference.ITrainService")]
     public interface ITrainService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetData", ReplyAction="http://tempuri.org/ITrainService/GetDataResponse")]
-        string GetData(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetPassageInfo", ReplyAction="http://tempuri.org/ITrainService/GetPassageInfoResponse")]
+        System.Xml.Linq.XElement GetPassageInfo(System.DateTime fromDate, System.DateTime toDate, string epcLocation);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetData", ReplyAction="http://tempuri.org/ITrainService/GetDataResponse")]
-        System.Threading.Tasks.Task<string> GetDataAsync(int value);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetPassageInfo", ReplyAction="http://tempuri.org/ITrainService/GetPassageInfoResponse")]
+        System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetPassageInfoAsync(System.DateTime fromDate, System.DateTime toDate, string epcLocation);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ITrainService/GetDataUsingDataContractResponse")]
-        IIProjectClient.TrainServiceReference.CompositeType GetDataUsingDataContract(IIProjectClient.TrainServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/SaveToFile", ReplyAction="http://tempuri.org/ITrainService/SaveToFileResponse")]
+        void SaveToFile(System.Xml.Linq.XElement value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/ITrainService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<IIProjectClient.TrainServiceReference.CompositeType> GetDataUsingDataContractAsync(IIProjectClient.TrainServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/SaveToFile", ReplyAction="http://tempuri.org/ITrainService/SaveToFileResponse")]
+        System.Threading.Tasks.Task SaveToFileAsync(System.Xml.Linq.XElement value);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetEvents", ReplyAction="http://tempuri.org/ITrainService/GetEventsResponse")]
+        System.Xml.Linq.XElement[] GetEvents(System.DateTime fromDate, System.DateTime toDate, string epcLocation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetEvents", ReplyAction="http://tempuri.org/ITrainService/GetEventsResponse")]
+        System.Threading.Tasks.Task<System.Xml.Linq.XElement[]> GetEventsAsync(System.DateTime fromDate, System.DateTime toDate, string epcLocation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetVehicle", ReplyAction="http://tempuri.org/ITrainService/GetVehicleResponse")]
+        System.Xml.Linq.XElement GetVehicle(string epc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetVehicle", ReplyAction="http://tempuri.org/ITrainService/GetVehicleResponse")]
+        System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetVehicleAsync(string epc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetLocation", ReplyAction="http://tempuri.org/ITrainService/GetLocationResponse")]
+        System.Xml.Linq.XElement GetLocation(string epc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetLocation", ReplyAction="http://tempuri.org/ITrainService/GetLocationResponse")]
+        System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetLocationAsync(string epc);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetAllLocations", ReplyAction="http://tempuri.org/ITrainService/GetAllLocationsResponse")]
+        System.Xml.Linq.XElement GetAllLocations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetAllLocations", ReplyAction="http://tempuri.org/ITrainService/GetAllLocationsResponse")]
+        System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetAllLocationsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -118,20 +79,52 @@ namespace IIProjectClient.TrainServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
+        public System.Xml.Linq.XElement GetPassageInfo(System.DateTime fromDate, System.DateTime toDate, string epcLocation) {
+            return base.Channel.GetPassageInfo(fromDate, toDate, epcLocation);
         }
         
-        public System.Threading.Tasks.Task<string> GetDataAsync(int value) {
-            return base.Channel.GetDataAsync(value);
+        public System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetPassageInfoAsync(System.DateTime fromDate, System.DateTime toDate, string epcLocation) {
+            return base.Channel.GetPassageInfoAsync(fromDate, toDate, epcLocation);
         }
         
-        public IIProjectClient.TrainServiceReference.CompositeType GetDataUsingDataContract(IIProjectClient.TrainServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
+        public void SaveToFile(System.Xml.Linq.XElement value) {
+            base.Channel.SaveToFile(value);
         }
         
-        public System.Threading.Tasks.Task<IIProjectClient.TrainServiceReference.CompositeType> GetDataUsingDataContractAsync(IIProjectClient.TrainServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task SaveToFileAsync(System.Xml.Linq.XElement value) {
+            return base.Channel.SaveToFileAsync(value);
+        }
+        
+        public System.Xml.Linq.XElement[] GetEvents(System.DateTime fromDate, System.DateTime toDate, string epcLocation) {
+            return base.Channel.GetEvents(fromDate, toDate, epcLocation);
+        }
+        
+        public System.Threading.Tasks.Task<System.Xml.Linq.XElement[]> GetEventsAsync(System.DateTime fromDate, System.DateTime toDate, string epcLocation) {
+            return base.Channel.GetEventsAsync(fromDate, toDate, epcLocation);
+        }
+        
+        public System.Xml.Linq.XElement GetVehicle(string epc) {
+            return base.Channel.GetVehicle(epc);
+        }
+        
+        public System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetVehicleAsync(string epc) {
+            return base.Channel.GetVehicleAsync(epc);
+        }
+        
+        public System.Xml.Linq.XElement GetLocation(string epc) {
+            return base.Channel.GetLocation(epc);
+        }
+        
+        public System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetLocationAsync(string epc) {
+            return base.Channel.GetLocationAsync(epc);
+        }
+        
+        public System.Xml.Linq.XElement GetAllLocations() {
+            return base.Channel.GetAllLocations();
+        }
+        
+        public System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetAllLocationsAsync() {
+            return base.Channel.GetAllLocationsAsync();
         }
     }
 }

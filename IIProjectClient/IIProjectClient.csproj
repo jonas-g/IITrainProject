@@ -274,9 +274,6 @@
     <Content Include="Scripts\knockout-3.4.2.debug.js" />
     <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Service References\TrainServiceReference\IIProjectClient.TrainServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\TrainServiceReference\TrainService.disco" />
     <None Include="Service References\TrainServiceReference\configuration91.svcinfo" />
     <None Include="Service References\TrainServiceReference\configuration.svcinfo" />
@@ -308,7 +305,6 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Train\Index.cshtml" />
