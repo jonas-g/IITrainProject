@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IIProjectClient.Models.VehiclePassage>
+﻿@model System.Xml.Linq.XElement
 
 @{
     ViewBag.Title = "Index";
@@ -19,66 +19,37 @@
         <div class="editor-label">
             <p>Sök fordon:</p>
         </div>
-        <div class="editor-field">
-        @*    @Html.EditorFor(model => model.Fordonet) *@
-        @*    @Html.ValidationMessageFor(model => model.Fordonet) *@
+        <div >
+            <h3>Från datum</h3>
+            <p>År @Html.TextBox("fromDateYear")</p>            
+            <p>Månad @Html.TextBox("fromDateMonth")</p>            
+            <p>Dag @Html.TextBox("fromDateDay")</p>            
         </div>
 
-        <div class="editor-label">
-            <p>Start time</p>
-        </div>
-        <div class="editor-field">
-        @*    @Html.EditorFor(model => model.Start) *@
-        @*    @Html.ValidationMessageFor(model => model.Start) *@
-        </div>
-
-        <div class="editor-label">
-            <p>Stop time</p>
-        </div>
-        <div class="editor-field">
-        @*    @Html.EditorFor(model => model.Slut) *@
-        @*    @Html.ValidationMessageFor(model => model.Slut) *@
+        <div>
+            <h3>Till datum</h3>
+            <p>År @Html.TextBox("toDateYear")</p>            
+            <p>Månad @Html.TextBox("toDateMonth")</p>
+            <p>Dag @Html.TextBox("toDateDay")</p>
+            
         </div>
 
-        @Html.DropDownList("Passages", (SelectList)ViewBag.DropDownValues);
+      
+
+        @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues)
         <p>
             <input type="submit" value="Search" />
         </p>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model.Descendants("Passage"))
+            {
+                @Html.Display(item.Value);
+            }
+        }
+
     </fieldset>
 }
-    @*
-if(Model != null)
-{
-    <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FordonEPC) 
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PlatsEPC) 
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PassageTid) 
-        </th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-              @*  @Html.DisplayFor(modelItem => item.FordonEPC) 
-            </td>
-            <td>
-             @*   @Html.DisplayFor(modelItem => item.PlatsEPC) 
-            </td>
-            <td>
-              @*  @Html.DisplayFor(modelItem => item.PassageTid) 
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            </td>
-        </tr>
-    } 
-    </table>
-}*@
 </body>

@@ -11,7 +11,7 @@ namespace IIProjectClient.Controllers
 {
     public class TrainController : Controller
     {
-        TrainServiceClient localService = new TrainServiceClient();
+        
         
         public TrainController()
         {
@@ -21,90 +21,34 @@ namespace IIProjectClient.Controllers
         // GET: Train
         public ActionResult Index()
         {
+            TrainServiceClient localService = new TrainServiceClient();
             //Nedan fixar en dropdown lista att välja locations ifrån.
             List<string> allLocations = new List<string>();
             XElement test = new XElement("Locations", localService.GetAllLocations());
-
             foreach(var i in test.Descendants("Location").Elements("Name"))
             {
                 allLocations.Add(i.Value);
             }
 
             ViewBag.DropDownValues = new SelectList(allLocations);
-
+            localService.Close();
             return View();
         }
-
-        // GET: Train/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Train/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Train/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Index(string fromDateYear,string fromDateMonth,string fromDateDay, string toDateYear, string toDateMonth, string toDateDay,string locationValue)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            TrainServiceClient localService = new TrainServiceClient();
+            DateTime fromDate = new DateTime(Int32.Parse(fromDateYear), Int32.Parse(fromDateMonth), Int32.Parse(fromDateDay));
+            DateTime toDate = new DateTime(Int32.Parse(toDateYear), Int32.Parse(toDateMonth), Int32.Parse(toDateDay));
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+
+            XElement searchResult = localService.GetAllLocations();
+                //localService.GetPassageInfo(fromDate,toDate,locationValue);
+
+            localService.Close();
+
+            return View("Index",searchResult);
         }
-
-        // GET: Train/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Train/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Train/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Train/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }
