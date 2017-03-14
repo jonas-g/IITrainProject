@@ -45,7 +45,7 @@
         {
             foreach (var item in Model.Descendants("Passage"))
             {
-                @Html.Display(item.Value);
+                @Html.Raw(item.Value);
             }
         }
 

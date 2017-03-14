@@ -42,8 +42,20 @@ namespace IIProjectClient.Controllers
             DateTime toDate = new DateTime(Int32.Parse(toDateYear), Int32.Parse(toDateMonth), Int32.Parse(toDateDay));
 
 
-            XElement searchResult = localService.GetAllLocations();
-                //localService.GetPassageInfo(fromDate,toDate,locationValue);
+            XElement Locations = localService.GetAllLocations();
+            
+            string locationEPC = Locations.Descendants("Location").Where(p => p.Element("Name").Value == locationValue).FirstOrDefault().Element("Epc").Value;
+
+            XElement searchResult = localService.GetPassageInfo(fromDate, toDate, locationEPC);
+
+            List<string> allLocations = new List<string>();
+            XElement test = new XElement("Locations", localService.GetAllLocations());
+            foreach (var i in test.Descendants("Location").Elements("Name"))
+            {
+                allLocations.Add(i.Value);
+            }
+
+            ViewBag.DropDownValues = new SelectList(allLocations);
 
             localService.Close();
 

@@ -43,12 +43,12 @@ namespace IIProjectService
                     let vehicle = GetVehicle(vehicleEPC)
                     let vehicleEVN = vehicle.Descendants("Fordonsnummer").FirstOrDefault().Value
                     let owner = vehicle.Descendants("Fordonsinnehavare").Elements("Foretag").FirstOrDefault().Value
-                    let maintenance = vehicle.Descendants("UnderhållsansvarigtForetag").Elements("Foretag").FirstOrDefault().Value
+                    let maintenance = vehicle.Descendants("UnderhallsansvarigtForetag").Elements("Foretag").FirstOrDefault().Value
                     let category = vehicle.Descendants("FordonskategoriKodFullVardeSE").FirstOrDefault().Value
                     let subcategory = vehicle.Descendants("FordonsunderkategoriKodFullVardeSE").FirstOrDefault().Value
                     //let authBool = 
                     let authFromDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtFrom").Value
-                    let authToDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom").Value
+                    //let authToDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom").Value
                     select
                     new XElement("Passage",
                         new XElement("VehicleEPC", vehicleEPC),
@@ -62,8 +62,8 @@ namespace IIProjectService
                             new XElement("Category", category),
                             new XElement("Subcategory", subcategory),
                             //new XElement("Authorized", authBool),
-                            new XElement("AuthorizedFromDate", authFromDate),
-                            new XElement("AuthorizedToDate", authToDate)
+                            new XElement("AuthorizedFromDate", authFromDate)
+                            //new XElement("AuthorizedToDate", authToDate)
                             )
                         )
                     );
