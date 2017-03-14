@@ -50,6 +50,12 @@ namespace IIProjectClient.TrainServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetAllLocations", ReplyAction="http://tempuri.org/ITrainService/GetAllLocationsResponse")]
         System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetAllLocationsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/toDateTimeFormat", ReplyAction="http://tempuri.org/ITrainService/toDateTimeFormatResponse")]
+        string[] toDateTimeFormat(string input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/toDateTimeFormat", ReplyAction="http://tempuri.org/ITrainService/toDateTimeFormatResponse")]
+        System.Threading.Tasks.Task<string[]> toDateTimeFormatAsync(string input);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -125,6 +131,14 @@ namespace IIProjectClient.TrainServiceReference {
         
         public System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetAllLocationsAsync() {
             return base.Channel.GetAllLocationsAsync();
+        }
+        
+        public string[] toDateTimeFormat(string input) {
+            return base.Channel.toDateTimeFormat(input);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> toDateTimeFormatAsync(string input) {
+            return base.Channel.toDateTimeFormatAsync(input);
         }
     }
 }

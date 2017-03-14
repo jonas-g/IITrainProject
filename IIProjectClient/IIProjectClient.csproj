@@ -314,6 +314,9 @@
     <None Include="Service References\TrainServiceReference\TrainService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\TrainServiceReference\TrainService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

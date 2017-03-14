@@ -34,6 +34,8 @@ namespace IIProjectService
         [OperationContract]
         XElement GetAllLocations ();
 
+        [OperationContract]
+        string[] toDateTimeFormat(string input);
 
 
     }

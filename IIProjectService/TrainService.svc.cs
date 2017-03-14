@@ -101,5 +101,9 @@ namespace IIProjectService
           return  namingService.GetVehicle(epc);
         }
 
+        public string[] toDateTimeFormat(string input)
+        {
+            return input.Split('/');            
+        }
     }
 }

@@ -3,53 +3,53 @@
 @{
     ViewBag.Title = "Index";
 }
+
 <header>
-<h2>Search</h2>
+    <h2>Search</h2>
 </header>
 <body>
 
-@* Starttime, Datettime, rullista med alla platser, söka på fordon. *@
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    @* Starttime, Datettime, rullista med alla platser, söka på fordon. *@
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Search</legend>
+        <fieldset>
+            <legend>Search</legend>
 
-        <div class="editor-label">
-            <p>Sök fordon:</p>
-        </div>
-        <div >
-            <h3>Från datum</h3>
-            <p>År @Html.TextBox("fromDateYear")</p>            
-            <p>Månad @Html.TextBox("fromDateMonth")</p>            
-            <p>Dag @Html.TextBox("fromDateDay")</p>            
-        </div>
+            <div>
+                <h3>From date</h3>
+                <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
+            </div>
 
-        <div>
-            <h3>Till datum</h3>
-            <p>År @Html.TextBox("toDateYear")</p>            
-            <p>Månad @Html.TextBox("toDateMonth")</p>
-            <p>Dag @Html.TextBox("toDateDay")</p>
+            <div>
+                <h3>To date</h3>
+                <p>@Html.TextBox("to", null, new { @class = "datePicker" })</p>
+            </div>
+
+            <div>
+                @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues)
+            </div>
             
-        </div>
+            <p>
+                <input type="submit" value="Search" />
+            </p>
 
-      
-
-        @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues)
-        <p>
-            <input type="submit" value="Search" />
-        </p>
-
-        @if (Model != null)
-        {
-            foreach (var item in Model.Descendants("Passage"))
+            @if (Model != null)
             {
-                @Html.Raw(item.Value);
+                foreach (var item in Model.Descendants("Passage"))
+                {
+                    @Html.Raw(item.Value);
+                }
             }
-        }
 
-    </fieldset>
-}
+        </fieldset>
 
+        <script type="text/javascript">
+                $(document).ready(function () {
+                    $(".datePicker").datepicker({ dateFormat: 'yyyy/m/d' });
+                });
+        </script>
+    }
 </body>

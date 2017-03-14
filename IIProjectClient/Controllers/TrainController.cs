@@ -11,8 +11,8 @@ namespace IIProjectClient.Controllers
 {
     public class TrainController : Controller
     {
-        
-        
+
+        TrainServiceClient localService = new TrainServiceClient();
         public TrainController()
         {
             
@@ -21,7 +21,7 @@ namespace IIProjectClient.Controllers
         // GET: Train
         public ActionResult Index()
         {
-            TrainServiceClient localService = new TrainServiceClient();
+            
             //Nedan fixar en dropdown lista att välja locations ifrån.
             List<string> allLocations = new List<string>();
             XElement test = new XElement("Locations", localService.GetAllLocations());
@@ -35,12 +35,10 @@ namespace IIProjectClient.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string fromDateYear,string fromDateMonth,string fromDateDay, string toDateYear, string toDateMonth, string toDateDay,string locationValue)
+        public ActionResult Index(string from, string to,string locationValue)
         {
-            TrainServiceClient localService = new TrainServiceClient();
-            DateTime fromDate = new DateTime(Int32.Parse(fromDateYear), Int32.Parse(fromDateMonth), Int32.Parse(fromDateDay));
-            DateTime toDate = new DateTime(Int32.Parse(toDateYear), Int32.Parse(toDateMonth), Int32.Parse(toDateDay));
-
+            DateTime fromDate = new DateTime(Int32.Parse(localService.toDateTimeFormat(from)[0]), Int32.Parse(localService.toDateTimeFormat(from)[1]), Int32.Parse(localService.toDateTimeFormat(from)[2]));
+            DateTime toDate = new DateTime(Int32.Parse(localService.toDateTimeFormat(to)[0]), Int32.Parse(localService.toDateTimeFormat(to)[1]), Int32.Parse(localService.toDateTimeFormat(to)[2]));
 
             XElement Locations = localService.GetAllLocations();
             
@@ -58,8 +56,8 @@ namespace IIProjectClient.Controllers
             ViewBag.DropDownValues = new SelectList(allLocations);
 
             localService.Close();
-
-            return View("Index",searchResult);
+            return View();
+           // return View("Index",searchResult);
         }
         
     }

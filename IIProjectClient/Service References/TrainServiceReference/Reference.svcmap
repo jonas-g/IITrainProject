@@ -23,10 +23,11 @@
   </MetadataSources>
   <Metadata>
     <MetadataFile FileName="TrainService.xsd" MetadataType="Schema" ID="623dd265-5d53-41e7-9e3c-5dc1df084288" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd0" />
-    <MetadataFile FileName="TrainService.disco" MetadataType="Disco" ID="4c04dcf5-a577-4d4b-a7c5-529513a49f00" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?disco" />
     <MetadataFile FileName="TrainService1.xsd" MetadataType="Schema" ID="e5f5863e-7e4e-4141-9a7b-18b42509c7eb" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd1" />
-    <MetadataFile FileName="TrainService2.xsd" MetadataType="Schema" ID="6a8ae939-ef7c-458d-8d21-2ff4f22dfc77" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TrainService.disco" MetadataType="Disco" ID="4c04dcf5-a577-4d4b-a7c5-529513a49f00" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?disco" />
+    <MetadataFile FileName="TrainService3.xsd" MetadataType="Schema" ID="07c11e33-68bc-411e-83b4-3da6fb51cae1" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd3" />
     <MetadataFile FileName="TrainService.wsdl" MetadataType="Wsdl" ID="03dacc3f-8a5f-4001-8a62-9c6f6d16903a" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?wsdl" />
+    <MetadataFile FileName="TrainService2.xsd" MetadataType="Schema" ID="6a8ae939-ef7c-458d-8d21-2ff4f22dfc77" SourceId="1" SourceUrl="http://localhost:50431/TrainService.svc?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
