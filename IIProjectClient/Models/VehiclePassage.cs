@@ -13,18 +13,18 @@ namespace IIProjectClient.Models
         public DateTime EventTime { get; set; }
 
         public VehiclePassage()
-       
         {
-            XElement XXXXXXX = new XElement("", "");
+            this.Location = new Location();
+            this.Vehicle = new Vehicle();
         }
 
-        public static void fromXML(XElement xmlResponse)
+        public static VehiclePassage fromXML(XElement xmlResponse)
         {
             VehiclePassage vehiclePassage = new VehiclePassage();
-            Location location = new Location();
-            Vehicle vehicle = new Vehicle();
+            Location location = vehiclePassage.Location;
+            Vehicle vehicle = vehiclePassage.Vehicle;
 
-            vehiclePassage.EventTime = DateTime.Now;// String behöver göras till datetime xmlResponse.Element("Time").Value;
+            vehiclePassage.EventTime = DateTime.ParseExact(xmlResponse.Element("Time").Value, "yyyy-MM-ddTHH:mm:ss.fffffffZ", System.Globalization.CultureInfo.InvariantCulture);
 
             location.Name = xmlResponse.Element("LocationName").Value;
             location.EPC = xmlResponse.Element("LocationEPC").Value;
@@ -32,14 +32,14 @@ namespace IIProjectClient.Models
             var tempQuery = xmlResponse.Element("Vehicle");
 
             vehicle.EPC = xmlResponse.Element("VehicleEPC").Value;
-            vehicle.EVN =Int32.Parse( tempQuery.Element("EVN").Value);
+            vehicle.EVN = tempQuery.Element("EVN").Value;
             vehicle.Owner = tempQuery.Element("Owner").Value;
             vehicle.Maintenance = tempQuery.Element("Maintenance").Value;
             vehicle.Category = tempQuery.Element("Category").Value;
             vehicle.Subcategory = tempQuery.Element("Subcategory").Value;
             //evetuell info om auth(godkännande)
 
-
+            return vehiclePassage;
         }
     }
 }
