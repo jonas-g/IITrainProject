@@ -12,7 +12,6 @@ namespace IIProjectClient.Controllers
     public class TrainController : Controller
     {
 
-        TrainServiceClient localService = new TrainServiceClient();
         public TrainController()
         {
             
@@ -21,7 +20,8 @@ namespace IIProjectClient.Controllers
         // GET: Train
         public ActionResult Index()
         {
-            
+            TrainServiceClient localService = new TrainServiceClient();
+
             //Nedan fixar en dropdown lista att välja locations ifrån.
             List<string> allLocations = new List<string>();
             XElement test = new XElement("Locations", localService.GetAllLocations());
@@ -37,6 +37,8 @@ namespace IIProjectClient.Controllers
         [HttpPost]
         public ActionResult Index(string from, string to,string locationValue)
         {
+            TrainServiceClient localService = new TrainServiceClient();
+
             DateTime fromDate = new DateTime(Int32.Parse(localService.toDateTimeFormat(from)[0]), Int32.Parse(localService.toDateTimeFormat(from)[1]), Int32.Parse(localService.toDateTimeFormat(from)[2]));
             DateTime toDate = new DateTime(Int32.Parse(localService.toDateTimeFormat(to)[0]), Int32.Parse(localService.toDateTimeFormat(to)[1]), Int32.Parse(localService.toDateTimeFormat(to)[2]));
 
@@ -55,9 +57,13 @@ namespace IIProjectClient.Controllers
 
             ViewBag.DropDownValues = new SelectList(allLocations);
 
+            localService.SaveToFile(searchResult);
+
             localService.Close();
-            return View();
-           // return View("Index",searchResult);
+
+
+            //return View();
+            return View("Index",searchResult);
         }
         
     }
