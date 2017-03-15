@@ -42,10 +42,32 @@ mark {
     padding-right: 5px;
 }
 
+.left {
+    margin:auto;
+    width: 10%;
+    float: left;
+    text-align: right;
+}
+.right {
+    margin:auto;
+    width: 20%;
+    margin-left: 10px;
+    float: left;
+}
+
+#dropDownLi {
+    padding-top:20px;
+    float: left;
+    width:20%;
+}
+
+#submitButtonLi {
+    float: left;
+    width: 40%;
+}
 .float-left {
     margin: auto;
     width: 50%;
-    text-align: center;
 }
 
 .float-right {
@@ -97,19 +119,19 @@ h5, h6 {
 ----------------------------------------------------------*/
 .content-wrapper {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 9600px;
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #aa4b41;
     clear: both;
     padding-bottom: 35px;
 }
 
 .main-content {
     margin: auto;
-    width: 30%;
-    padding-left: 10px;
+    width: 100%;
+    padding-left: 50px;
     padding-top: 30px;
 }
 
@@ -130,9 +152,8 @@ footer {
 .site-title {
     color: #a4d4e6;
     font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
-    font-size: 6em;
+    font-size: 5em;
     margin: 0;
-    text-align: center;
 }
 
 .site-title a, .site-title a:hover, .site-title a:active {
@@ -140,10 +161,33 @@ footer {
     color: #c8c8c8;
     outline: none;
     text-decoration: none;
+    font-size: 0.68em;
+    padding-left: 10px;
 }
 
 /* page elements
 ----------------------------------------------------------*/
+/* datePicker */
+.datePicker {
+    width: 70%;
+    color: #aa4b41;
+    border-radius: 7px;
+}
+
+/* dropDown */
+#dropDown { 
+    height: 30px;
+    width: 120px;
+    border-radius: 7px;
+    border-style: none;
+    color: #aa4b41;
+}
+
+select::-ms-expand {
+    text-align:center;
+    display: none;
+}
+
 /* featured */
 .featured {
     background-color: #fff;
@@ -175,7 +219,12 @@ footer {
     width: 100px;
     height: 100px;
     border-radius: 80%;
-    
+}
+#submitButton:hover {
+    width: 105px;
+    height: 105px;
+    font-size: 1.51em;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 /* page titles */
 hgroup.title {
@@ -197,7 +246,10 @@ section.feature {
     float: left;
     padding: 10px;
 }
-
+/* ul */
+ul {
+    list-style-type: none;
+}
 /* ordered list */
 ol.round {
     list-style-type: none;
@@ -484,37 +536,6 @@ tr.pager td {
         margin: 10px;
         text-align: center;
     }
-
-    /* login */
-    #login {
-        font-size: .85em;
-        margin: 0 0 12px;
-        text-align: center;
-    }
-
-        #login ul {
-            margin: 5px 0;
-            padding: 0;
-        }
-
-        #login li {
-            display: inline;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        #login a {
-            background: none;
-            color: #999;
-            font-weight: 600;
-            margin: 2px;
-            padding: 0;
-        }
-
-        #login a:hover {
-            color: #333;
-        }
 
     /* menu */
     nav {
