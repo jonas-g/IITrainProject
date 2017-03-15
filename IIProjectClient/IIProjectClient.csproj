@@ -195,6 +195,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ServiceMessage.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Models\VehiclePassage.cs" />
     <Compile Include="Models\Authorisation.cs" />

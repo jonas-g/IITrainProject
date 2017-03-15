@@ -101,7 +101,16 @@ namespace IIProjectService
         //Bygga XElementet här eller senare(yield)?
         public IEnumerable<XElement> GetEvents(DateTime fromDate, DateTime toDate, string epcLocation)
         {
-             return epcisEventService.GetEvents(fromDate,toDate,epcLocation);
+            try
+            {
+                return epcisEventService.GetEvents(fromDate,toDate,epcLocation);
+            }
+            catch (CommunicationException)
+            {
+                //CommunicationException???
+                throw;
+            }
+             
         }
 
         public XElement GetLocation(string epc)

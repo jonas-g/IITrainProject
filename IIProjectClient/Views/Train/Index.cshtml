@@ -8,6 +8,10 @@
     <h2>Search</h2>
 </header>
 <body>
+    @if (ViewBag.Message != null)
+    {
+        <p>@ViewBag.Message</p>
+    }
 
     @* Starttime, Datettime, rullista med alla platser, söka på fordon. *@
     @using (Html.BeginForm())
@@ -19,6 +23,8 @@
             <div class="float-left">
                 <legend>Search</legend>
 
+                <h3>User name</h3>
+                <p>@Html.TextBox("user")</p>
 
                 <h3>From date</h3>
                 <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
