@@ -43,7 +43,9 @@ mark {
 }
 
 .float-left {
-    float: left;
+    margin: auto;
+    width: 50%;
+    text-align: center;
 }
 
 .float-right {
@@ -104,15 +106,12 @@ h5, h6 {
     padding-bottom: 35px;
 }
 
-    .main-content {
-        background: url("../Images/accent.png") no-repeat;
-        padding-left: 10px;
-        padding-top: 30px;
-    }
-
-    .featured + .main-content {
-        background: url("../Images/heroAccent.png") no-repeat;
-    }
+.main-content {
+    margin: auto;
+    width: 30%;
+    padding-left: 10px;
+    padding-top: 30px;
+}
 
 header .content-wrapper {
     padding-top: 20px; 
@@ -133,6 +132,7 @@ footer {
     font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
     font-size: 6em;
     margin: 0;
+    text-align: center;
 }
 
 .site-title a, .site-title a:hover, .site-title a:active {
@@ -141,69 +141,6 @@ footer {
     outline: none;
     text-decoration: none;
 }
-
-
-/* login
-----------------------------------------------------------*/
-#login {
-    display: block;
-    font-size: .85em;
-    margin: 0 0 10px;
-    text-align: right;
-}
-
-    #login a {
-        background-color: #d3dce0;
-        margin-left: 10px;
-        margin-right: 3px;
-        padding: 2px 3px;
-        text-decoration: none;
-    }
-
-    #login a.username {
-        background: none;
-        margin: 0;
-        padding: 0;
-        text-decoration: underline;
-    }
-
-    #login ul {
-        margin: 0;
-    }
-
-    #login li {
-        display: inline;
-        list-style: none;
-    }
-
-
-/* menu
-----------------------------------------------------------*/
-ul#menu {
-    font-size: 1.3em;
-    font-weight: 600;
-    margin: 0 0 5px;
-    padding: 0;
-    text-align: right;
-}
-
-    ul#menu li {
-        display: inline;
-        list-style: none;
-        padding-left: 15px;
-    }
-
-        ul#menu li a {
-            background: none;
-            color: #999;
-            text-decoration: none;
-        }
-
-        ul#menu li a:hover {
-            color: #333;
-            text-decoration: none;
-        }
-
 
 /* page elements
 ----------------------------------------------------------*/
@@ -231,6 +168,15 @@ ul#menu {
             font-size: 1.1em;
         }
 
+#submitButton {
+    background-color: #335252;
+    color: #d4dde1;
+    font-size: 1.5em; 
+    width: 100px;
+    height: 100px;
+    border-radius: 80%;
+    
+}
 /* page titles */
 hgroup.title {
     margin-bottom: 10px;
@@ -247,7 +193,7 @@ hgroup.title h2 {
 
 /* features */
 section.feature {
-    width: 300px;
+    width: 400px;
     float: left;
     padding: 10px;
 }
@@ -326,72 +272,6 @@ aside {
 
 .label {
     font-weight: 700;
-}
-
-/* login page */
-#loginForm {
-    border-right: solid 2px #c8c8c8;
-    float: left;
-    width: 55%;
-}
-
-    #loginForm .validation-error {
-        display: block;
-        margin-left: 15px;
-    }
-
-    #loginForm .validation-summary-errors ul {
-        margin: 0;
-        padding: 0;
-    }
-
-    #loginForm .validation-summary-errors li {
-        display: inline;
-        list-style: none;
-        margin: 0;
-    }
-
-    #loginForm input {
-        width: 250px;
-    }
-
-    #loginForm input[type="checkbox"],
-    #loginForm input[type="submit"],
-    #loginForm input[type="button"],
-    #loginForm button {
-        width: auto;
-    }
-
-#socialLoginForm {
-    margin-left: 40px;
-    float: left;
-    width: 40%;
-}
-
-    #socialLoginForm h2 {
-        margin-bottom:  5px;
-    }
-
-#socialLoginList button {
-    margin-bottom: 12px;
-}
-
-#logoutForm {
-    display: inline;
-}
-
-/* contact */
-.contact h3 {
-    font-size: 1.2em;
-}
-
-.contact p {
-    margin: 5px 0 0 10px;
-}
-
-.contact iframe {
-    border: 1px solid #333;
-    margin: 5px 0 0 10px;
 }
 
 /* forms */
