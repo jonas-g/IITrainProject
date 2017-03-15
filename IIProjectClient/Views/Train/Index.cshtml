@@ -26,20 +26,28 @@
                 <h3>User name</h3>
                 <p>@Html.TextBox("user")</p>
 
+            <ul>
+                <li>
+                    <div class="left">
                 <h3>From date</h3>
-                <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
-
                 <h3>To date</h3>
+                    </div>
+                    <div class="right">
+                        <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
                 <p>@Html.TextBox("to", null, new { @class = "datePicker" })</p>
             </div>
-
-            <div>
-                @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues)
+                </li>
+                <li>
+                    <div id="dropDownLi">
+                        @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues, new { id = "dropDown" })
             </div>
-            
-            <p>
+                </li>
+                <li>
+                    <div id="submitButtonLi">
                 <input id="submitButton" type="submit" value="Search" />
-            </p>
+                    </div>
+                </li>
+            </ul>   
 
             @if (Model != null)
             {
