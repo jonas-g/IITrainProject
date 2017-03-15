@@ -16,14 +16,13 @@
         @Html.ValidationSummary(true)
 
         <fieldset>
-            <legend>Search</legend>
+            <div class="float-left">
+                <legend>Search</legend>
 
-            <div>
+
                 <h3>From date</h3>
                 <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
-            </div>
 
-            <div>
                 <h3>To date</h3>
                 <p>@Html.TextBox("to", null, new { @class = "datePicker" })</p>
             </div>
@@ -33,7 +32,7 @@
             </div>
             
             <p>
-                <input type="submit" value="Search" />
+                <input id="submitButton" type="submit" value="Search" />
             </p>
 
             @if (Model != null)

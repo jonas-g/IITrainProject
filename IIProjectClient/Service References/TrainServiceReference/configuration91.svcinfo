@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="rsfx63dtsriaPRQ2k4kv6nTCw6A=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="kYf6SvJQa8fVe/67+/1krIMf7Qk=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ITrainService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_ITrainService" contract="TrainServiceReference.ITrainService" bindingType="basicHttpBinding" address="http://localhost:50431/TrainService.svc" bindingConfiguration="BasicHttpBinding_ITrainService">
+    <endpoint name="BasicHttpBinding_ITrainService" contract="TrainServiceReference.ITrainService" bindingType="basicHttpBinding" address="http://localhost:10553/TrainService.svc" bindingConfiguration="BasicHttpBinding_ITrainService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:50431/TrainService.svc</serializedValue>
+          <serializedValue>http://localhost:10553/TrainService.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
