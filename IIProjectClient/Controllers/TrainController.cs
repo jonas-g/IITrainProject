@@ -20,18 +20,8 @@ namespace IIProjectClient.Controllers
         // GET: Train
         public ActionResult Index()
         {
-            TrainServiceClient localService = new TrainServiceClient();
+            ViewBag.DropDownValues = new SelectList(GetLocationList());
 
-            //Nedan fixar en dropdown lista att välja locations ifrån.
-            List<string> allLocations = new List<string>();
-            XElement test = new XElement("Locations", localService.GetAllLocations());
-            foreach(var i in test.Descendants("Location").Elements("Name"))
-            {
-                allLocations.Add(i.Value);
-            }
-
-            ViewBag.DropDownValues = new SelectList(allLocations);
-            localService.Close();
             return View();
         }
         [HttpPost]
@@ -48,23 +38,35 @@ namespace IIProjectClient.Controllers
 
             XElement searchResult = localService.GetPassageInfo(fromDate, toDate, locationEPC);
 
+            ViewBag.DropDownValues = new SelectList(GetLocationList());
+
+            localService.SaveToFile(searchResult);
+
+            localService.Close();
+
+            List<VehiclePassage> queryPassages = new List<VehiclePassage>();
+
+            foreach (var p in searchResult.Descendants("Passage"))
+        	{
+                queryPassages.Add(VehiclePassage.fromXML(p));
+        	}
+
+            //return View();
+            return View("Index", queryPassages);
+        }
+
+        private List<string> GetLocationList()
+        {
+            TrainServiceClient localService = new TrainServiceClient();
+
             List<string> allLocations = new List<string>();
             XElement test = new XElement("Locations", localService.GetAllLocations());
             foreach (var i in test.Descendants("Location").Elements("Name"))
             {
                 allLocations.Add(i.Value);
             }
-
-            ViewBag.DropDownValues = new SelectList(allLocations);
-
-            localService.SaveToFile(searchResult);
-
             localService.Close();
-
-
-            //return View();
-            return View("Index",searchResult);
+            return allLocations;
         }
-        
     }
 }

@@ -8,7 +8,7 @@ namespace IIProjectClient.Models
     public class Vehicle
     {
         public string EPC { get; set; }
-        public long EVN { get; set; }
+        public string EVN { get; set; }
         public string Owner { get; set; }
         public string Maintenance { get; set; }
         public string Category { get; set; }
