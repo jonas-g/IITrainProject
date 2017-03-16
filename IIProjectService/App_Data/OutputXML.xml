@@ -45,34 +45,4 @@
       <AuthorizedToDate>Ingen data</AuthorizedToDate>
     </Vehicle>
   </Passage>
-  <Passage>
-    <VehicleEPC>urn:epc:id:giai:7332743.2200000002015</VehicleEPC>
-    <LocationEPC>urn:epc:id:sgln:735999271.000.1</LocationEPC>
-    <Time>2011-04-06T12:56:39.5464509Z</Time>
-    <LocationName>Hunstugan_USP</LocationName>
-    <Vehicle>
-      <EVN>Ingen data</EVN>
-      <Owner>Ingen data</Owner>
-      <Maintenance>Ingen data</Maintenance>
-      <Category>Ingen data</Category>
-      <Subcategory>Ingen data</Subcategory>
-      <AuthorizedFromDate>Ingen data</AuthorizedFromDate>
-      <AuthorizedToDate>Ingen data</AuthorizedToDate>
-    </Vehicle>
-  </Passage>
-  <Passage>
-    <VehicleEPC>urn:epc:id:giai:7332743.2200000002002</VehicleEPC>
-    <LocationEPC>urn:epc:id:sgln:735999271.000.1</LocationEPC>
-    <Time>2011-04-06T15:58:06.2232425Z</Time>
-    <LocationName>Hunstugan_USP</LocationName>
-    <Vehicle>
-      <EVN>Ingen data</EVN>
-      <Owner>Ingen data</Owner>
-      <Maintenance>Ingen data</Maintenance>
-      <Category>Ingen data</Category>
-      <Subcategory>Ingen data</Subcategory>
-      <AuthorizedFromDate>Ingen data</AuthorizedFromDate>
-      <AuthorizedToDate>Ingen data</AuthorizedToDate>
-    </Vehicle>
-  </Passage>
 </Passages>
