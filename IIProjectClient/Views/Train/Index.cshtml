@@ -8,9 +8,9 @@
     <h2>Search</h2>
 </header>
 <body>
-    @if (ViewBag.Message != null)
+    @if (ViewData["ServiceMessage"] != null)
     {
-        <p>@ViewBag.Message</p>
+        <p>@ViewData["ServiceMessage"]</p>
     }
 
     @* Starttime, Datettime, rullista med alla platser, söka på fordon. *@
@@ -52,31 +52,112 @@
             @if (Model != null)
             {
                 //Servicemeddelande här?
-                <table>
-                    <tr>
-                        <th>
-                            Time
-                        </th>
-                        <th>
-                            Vehicle EPC
-                        </th>
-                        <th></th>
-                    </tr>
-                    @foreach (var item in Model)
-                    {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EventTime)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Vehicle.EPC)
-                        </td>
-                        <td>
-                            View Details
-                        </td>
-                    </tr>
-                    }
+                <table id="events" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                Time
+                            </th>
+                            <th>
+                                Vehicle EPC
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EventTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Vehicle.EPC)
+                                </td>
+                                <td>
+                                    <a href="#my_modal" data-toggle="modal" data-vehicle-epc="@item.Vehicle.EPC"
+                                       data-vehicle-evn="@item.Vehicle.EVN" data-vehicle-owner="@item.Vehicle.Owner"
+                                       data-vehicle-maintenance="@item.Vehicle.Maintenance" data-vehicle-category="@item.Vehicle.Category"
+                                       data-vehicle-subcategory="@item.Vehicle.Subcategory">View Details</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
+
+                <div class="modal" id="my_modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h4 class="modal-title">Vehicle Details</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p><b>Vehicle EPC</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="vehicleEPC" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>EVN</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="EVN" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>Owner</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="owner" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>Maintenance</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="maintenance" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>Category</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="category" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>Subcategory</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="subcategory" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>Authorization</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="authorization" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             }
 
         </fieldset>
@@ -84,6 +165,22 @@
         <script type="text/javascript">
                 $(document).ready(function () {
                     $(".datePicker").datepicker({ dateFormat: 'yy/m/d', changeYear: true, defaultDate: '-6y' });
+                    $('#events').DataTable();
+                });
+                $('#my_modal').on('show.bs.modal', function (e) {
+                    var vehicleEPC = $(e.relatedTarget).data('vehicle-epc');
+                    var evn = $(e.relatedTarget).data('vehicle-evn');
+                    var owner = $(e.relatedTarget).data('vehicle-owner');
+                    var maintenance = $(e.relatedTarget).data('vehicle-maintenance');
+                    var category = $(e.relatedTarget).data('vehicle-category');
+                    var subcategory = $(e.relatedTarget).data('vehicle-subcategory');
+                    //document.getElementById("vehicleEPC").innerHTML = vehicleEPC;
+                    $(e.currentTarget).find('p[id="vehicleEPC"]').html(vehicleEPC);
+                    $(e.currentTarget).find('p[id="EVN"]').html(evn);
+                    $(e.currentTarget).find('p[id="owner"]').html(owner);
+                    $(e.currentTarget).find('p[id="maintenance"]').html(maintenance);
+                    $(e.currentTarget).find('p[id="category"]').html(category);
+                    $(e.currentTarget).find('p[id="subcategory"]').html(subcategory);
                 });
         </script>
     }
