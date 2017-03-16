@@ -53,7 +53,8 @@ namespace IIProjectService
                     let locationEPC = result.Descendants("id").FirstOrDefault().Value
                     let time = result.Descendants("eventTime").FirstOrDefault().Value
                     let location = locationData.Descendants("Name").FirstOrDefault().Value
-                    let vehicle = GetVehicle(vehicleEPC).Descendants("FordonsIndivid").Count() != 0 ? GetVehicle(vehicleEPC) : emptyVehicleData
+                    let vehicle = GetVehicle(vehicleEPC).Descendants("FordonsIndivid").Count() != 0 ? 
+                        GetVehicle(vehicleEPC) : emptyVehicleData
                     let vehicleEVN = vehicle.Descendants("Fordonsnummer").FirstOrDefault().Value
                     let owner = vehicle.Descendants("Fordonsinnehavare").Elements("Foretag").FirstOrDefault().Value
                     let maintenance = vehicle.Descendants("UnderhallsansvarigtForetag").Elements("Foretag").FirstOrDefault().Value
@@ -61,7 +62,8 @@ namespace IIProjectService
                     let subcategory = vehicle.Descendants("FordonsunderkategoriKodFullVardeSE").FirstOrDefault().Value
                     //let authBool = 
                     let authFromDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtFrom").Value
-                    let authToDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom") != null ? vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom").Value : "Ingen data"
+                    let authToDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom") != null ? 
+                        vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom").Value : "Ingen data"
                     select
                     new XElement("Passage",
                         new XElement("VehicleEPC", vehicleEPC),
@@ -108,7 +110,10 @@ namespace IIProjectService
             catch (CommunicationException)
             {
                 //CommunicationException???
-                throw;
+                List<XElement> test = new List<XElement>();
+                test.Add(new XElement("Error", "TMI"));
+                return test;
+                
             }
              
         }

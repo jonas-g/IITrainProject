@@ -28,11 +28,18 @@ namespace IIProjectClient.Controllers
         public ActionResult Index(string from, string to, string locationValue, string user)
         {
             Users users = new Users();
+            ServiceMessage message = new ServiceMessage();
+            message.SentArgument = "From: " + from + " To:" + to + " At:" + locationValue;
+            message.CallManager = user;
+            message.AnswerTime = DateTime.Now;
+            //message.SentArgument = "[0] [1] [2]", from, to, locationValue;
 
             ViewBag.DropDownValues = new SelectList(GetLocationList());
 
             if (users.userList.Contains(user))
             {
+                message.AnswerCode = 1;
+                message.Message = "Query successful";
                 TrainServiceClient localService = new TrainServiceClient();
 
                 DateTime fromDate = new DateTime(Int32.Parse(localService.toDateTimeFormat(from)[0]), 
@@ -51,20 +58,36 @@ namespace IIProjectClient.Controllers
                 localService.SaveToFile(searchResult);
 
                 localService.Close();
-
-                List<VehiclePassage> queryPassages = new List<VehiclePassage>();
-
-                foreach (var p in searchResult.Descendants("Passage"))
+                if (searchResult.Descendants("Error").Count() == 0)
                 {
-                    queryPassages.Add(VehiclePassage.fromXML(p));
+                    List<VehiclePassage> queryPassages = new List<VehiclePassage>();
+
+                    foreach (var p in searchResult.Descendants("Passage"))
+                    {
+                        queryPassages.Add(VehiclePassage.fromXML(p));
+                    }
+                    ViewData["ServiceMessage"] = message;
+
+                    return View("Index", queryPassages);
                 }
+                else
+                {
+                    message.AnswerCode = 2;
+                    message.Message = "Error";
+                    ViewData["ServiceMessage"] = message;
+
+                    return View();
+                }
+                
 
                 //return View();
-                return View("Index", queryPassages);
+                
             }
             else
             {
-                ViewBag.Message = "Invalid username";
+                message.AnswerCode = 3;
+                message.Message = "Autentisering misslyckades";
+                ViewData["ServiceMessage"] = message;
                 return View();
             }
         }

@@ -8,9 +8,9 @@
     <h2>Search</h2>
 </header>
 <body>
-    @if (ViewBag.Message != null)
+    @if (ViewData["ServiceMessage"] != null)
     {
-        <p>@ViewBag.Message</p>
+        <p>@ViewData["ServiceMessage"]</p>
     }
 
     @* Starttime, Datettime, rullista med alla platser, söka på fordon. *@
