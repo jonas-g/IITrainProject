@@ -42,35 +42,28 @@ mark {
     padding-right: 5px;
 }
 
-#menu {    
-    margin-left: 12%;
-    width: 90%;
-    padding-left: 40px;
-    max-width: 63%;
+.left {
+    margin:auto;
+    width: 10%;
+    float: left;
+    text-align: right;
 }
-#menu *{
-    display: inline-block;
-    padding: 5px;
+.right {
+    margin:auto;
+    width: 20%;
+    margin-left: 10px;
+    float: left;
 }
-#userName {
-    width: 22%;
-    max-width: 260px;
+
+#dropDownLi {
+    padding-top:20px;
+    float: left;
+    width:20%;
 }
-#location {
-    width: 19%;
-    max-width: 220px;
-}
-#fromDate {
-    width: 21%;
-    max-width: 250px;
-}
-#toDate {
-    width: 19%;
-    max-width: 230px;
-}
-#submitBtn {
-    width: 9%;
-    padding-left: 40px;
+
+#submitButtonLi {
+    float: left;
+    width: 40%;
 }
 .float-left {
     margin: auto;
@@ -106,8 +99,6 @@ h2 {
 
 h3 {
     font-size: 1.2em;
-    display:inline-block;
-    text-align: right;
 }
 
 h4 {
@@ -134,14 +125,14 @@ h5, h6 {
 #body {
     background-color: #aa4b41;
     clear: both;
-    padding-bottom: 5px;
-
+    padding-bottom: 35px;
 }
+
 .main-content {
     margin: auto;
     width: 100%;
     padding-left: 50px;
-    padding-top: 5px;
+    padding-top: 30px;
 }
 
 header .content-wrapper {
@@ -176,22 +167,11 @@ footer {
 
 /* page elements
 ----------------------------------------------------------*/
-/* datePicker and inputs */
-.inputfields {
-    width: 130px;
-    color: #aa4b41;
-    border-radius: 7px;
-}
-
+/* datePicker */
 .datePicker {
-    width: 130px;
+    width: 70%;
     color: #aa4b41;
     border-radius: 7px;
-}
-
-ul {
-    margin: auto;
-    width: 75%;
 }
 
 /* dropDown */
@@ -270,7 +250,6 @@ section.feature {
 ul {
     list-style-type: none;
 }
-
 /* ordered list */
 ol.round {
     list-style-type: none;
@@ -585,7 +564,6 @@ tr.pager td {
     .content-wrapper {
         padding-right: 10px;
         padding-left: 10px;
-        padding-top: 5px;
     }
 
     .featured .content-wrapper {

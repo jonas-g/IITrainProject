@@ -3,6 +3,10 @@
 @{
     ViewBag.Title = "Index";
 }
+
+<header>
+    <h2>Search</h2>
+</header>
 <body>
     @if (ViewBag.Message != null)
     {
@@ -16,29 +20,34 @@
         @Html.ValidationSummary(true)
 
         <fieldset>
-            <div id="menu">
-                <div id="userName">
-                    <h3>User name: </h3>
-                    <p>@Html.TextBox("user", null, new { @class = "inputfields" })</p>
-                </div>
-                <div id="location">
-                    <h3>Location: </h3>
-                    <p>@Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues, new { id = "dropDown" })</p>
-                </div>
-                <div id="fromDate">
-                    <h3>From date: </h3>
-                    <p>@Html.TextBox("from", null, new { @class = "datePicker", })</p>
-                </div>
-                <div id="toDate">
-                    <h3>To date: </h3>
-                    <p>@Html.TextBox("to", null, new { @class = "datePicker" })</p>
-                </div>
-                <div id="submitBtn">
-                    <input id="submitButton" type="submit" value="Search" />
-                </div>
+            <div class="float-left">
+                <legend>Search</legend>
+
+                <h3>User name</h3>
+                <p>@Html.TextBox("user")</p>
+
+            <ul>
+                <li>
+                    <div class="left">
+                <h3>From date</h3>
+                <h3>To date</h3>
+                    </div>
+                    <div class="right">
+                        <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
+                <p>@Html.TextBox("to", null, new { @class = "datePicker" })</p>
             </div>
-        </fieldset>
-    }
+                </li>
+                <li>
+                    <div id="dropDownLi">
+                        @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues, new { id = "dropDown" })
+            </div>
+                </li>
+                <li>
+                    <div id="submitButtonLi">
+                <input id="submitButton" type="submit" value="Search" />
+                    </div>
+                </li>
+            </ul>   
 
             @if (Model != null)
             {
@@ -55,28 +64,27 @@
                     </tr>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EventTime)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Vehicle.EPC)
-                            </td>
-                            <td>
-                                View Details
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vehicle.EPC)
+                        </td>
+                        <td>
+                            View Details
+                        </td>
+                    </tr>
                     }
                 </table>
             }
-       
-       
-    <script type="text/javascript">
+
+        </fieldset>
+
+        <script type="text/javascript">
                 $(document).ready(function () {
                     $(".datePicker").datepicker({ dateFormat: 'yy/m/d', changeYear: true, defaultDate: '-6y' });
                 });
-    </script>
-
-    
-
+        </script>
+    }
 </body>
