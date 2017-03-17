@@ -1,16 +1,12 @@
 ﻿@model IEnumerable<IIProjectClient.Models.VehiclePassage>
+@using IIProjectClient.Models
+
 
 @{
     ViewBag.Title = "Index";
 }
 
 <body>
-    @if (ViewData["ServiceMessage"] != null)
-    {
-        <p>@ViewData["ServiceMessage"]</p>
-    }
-
-    @* Starttime, Datettime, rullista med alla platser, söka på fordon. *@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -37,40 +33,56 @@
                     <input id="submitButton" type="submit" value="Search" />
                 </div>
             </div>
-    }
-        @if (Model != null)
-        {
-           <table id="events" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th>
-                            Time
-                        </th>
-                        <th>
-                            Vehicle EPC
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EventTime)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Vehicle.EPC)
-                            </td>
-                            <td>
-                                <a href="#my_modal" data-toggle="modal" data-vehicle-epc="@item.Vehicle.EPC"
-                                   data-vehicle-evn="@item.Vehicle.EVN" data-vehicle-owner="@item.Vehicle.Owner"
-                                   data-vehicle-maintenance="@item.Vehicle.Maintenance" data-vehicle-category="@item.Vehicle.Category"
-                                   data-vehicle-subcategory="@item.Vehicle.Subcategory">View Details</a>                             </td>
+        </fieldset>
+
+        <div id="main-content">
+            <div id="message">
+                @if (ViewData["ServiceMessage"] != null)
+                {
+                    var messageOutput = (ServiceMessage)ViewData["ServiceMessage"];
+                    <p>Search made by @messageOutput.CallManager at @messageOutput.AnswerTime</p>
+                    <p>Train passages @messageOutput.SentArgument</p>
+                    <p>Status: @messageOutput.Message</p>
+                }
+            </div>
+
+            @if (Model != null)
+            {
+                <div id="event-wrapper">
+                    <table id="events" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Time
+                                </th>
+                                <th>
+                                    Vehicle EPC
+                                </th>
+                                <th></th>
                             </tr>
-                    }
-                </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.EventTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Vehicle.EPC)
+                                    </td>
+                                    <td>
+                                        <a href="#my_modal" data-toggle="modal" data-vehicle-epc="@item.Vehicle.EPC"
+                                           data-vehicle-evn="@item.Vehicle.EVN" data-vehicle-owner="@item.Vehicle.Owner"
+                                           data-vehicle-maintenance="@item.Vehicle.Maintenance" data-vehicle-category="@item.Vehicle.Category"
+                                           data-vehicle-subcategory="@item.Vehicle.Subcategory" data-vehicle-authorisation-message="@item.Vehicle.Auth.Message"
+                                           data-vehicle-authorisation-from="@item.Vehicle.Auth.StartDate" data-vehicle-authorisation-to="@item.Vehicle.Auth.EndDate">View Details</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="modal" id="my_modal">
                     <div class="modal-dialog">
@@ -80,7 +92,7 @@
                                 <h4 class="modal-title">Vehicle Details</h4>
                             </div>
                             <div class="modal-body">
-                                <table>
+                                <table class="table table-striped table-bordered">
                                     <tr>
                                         <td>
                                             <p><b>Vehicle EPC</b></p>
@@ -131,10 +143,26 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <p><b>Authorization</b></p>
+                                            <p><b>Authorisation</b></p>
                                         </td>
                                         <td>
-                                            <p id="authorization" />
+                                            <p id="authorisation-message" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>Authorised From</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="authorisation-from" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p><b>Authorised To</b></p>
+                                        </td>
+                                        <td>
+                                            <p id="authorisation-to" />
                                         </td>
                                     </tr>
                                 </table>
@@ -146,8 +174,8 @@
                     </div>
                 </div>
             }
+        </div>
 
-        </fieldset>
 
         <script type="text/javascript">
                 $(document).ready(function () {
@@ -161,13 +189,21 @@
                     var maintenance = $(e.relatedTarget).data('vehicle-maintenance');
                     var category = $(e.relatedTarget).data('vehicle-category');
                     var subcategory = $(e.relatedTarget).data('vehicle-subcategory');
-                    //document.getElementById("vehicleEPC").innerHTML = vehicleEPC;
+                    var authMsg = $(e.relatedTarget).data('vehicle-authorisation-message');
+                    var authFromDate = $(e.relatedTarget).data('vehicle-authorisation-from');
+                    var authToDate = $(e.relatedTarget).data('vehicle-authorisation-to');
+             
                     $(e.currentTarget).find('p[id="vehicleEPC"]').html(vehicleEPC);
                     $(e.currentTarget).find('p[id="EVN"]').html(evn);
                     $(e.currentTarget).find('p[id="owner"]').html(owner);
                     $(e.currentTarget).find('p[id="maintenance"]').html(maintenance);
                     $(e.currentTarget).find('p[id="category"]').html(category);
                     $(e.currentTarget).find('p[id="subcategory"]').html(subcategory);
+                    $(e.currentTarget).find('p[id=""]').html(subcategory);
+                    $(e.currentTarget).find('p[id="subcategory"]').html(subcategory);
+                    $(e.currentTarget).find('p[id="authorisation-message"]').html(authMsg);
+                    $(e.currentTarget).find('p[id="authorisation-from"]').html(authFromDate);
+                    $(e.currentTarget).find('p[id="authorisation-to"]').html(authToDate);
                 });
         </script>
     }

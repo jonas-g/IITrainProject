@@ -30,7 +30,7 @@ namespace IIProjectClient.Controllers
             TrainServiceClient localService = new TrainServiceClient();
             Users users = new Users();
             ServiceMessage message = new ServiceMessage();
-            message.SentArgument = "From: " + from + " To:" + to + " At:" + locationValue;
+            message.SentArgument = "From: " + from + ", To:" + to + ", At:" + locationValue;
             message.CallManager = user;
             message.AnswerTime = DateTime.Now;
 
@@ -63,7 +63,7 @@ namespace IIProjectClient.Controllers
                         queryPassages.Add(VehiclePassage.fromXML(p));
                     }
                     ViewData["ServiceMessage"] = message;
-                    localService.SaveToFile(searchResult,message.toXML());
+                    localService.SaveToFile(searchResult, message.toXML());
                     return View("Index", queryPassages);
                 }
                 else

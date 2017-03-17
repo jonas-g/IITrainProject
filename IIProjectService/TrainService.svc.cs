@@ -34,16 +34,17 @@ namespace IIProjectService
             var locationData = GetLocation(epcLocation);
 
             XElement emptyVehicleData = new XElement("Fordonsindivid",
-                new XElement("Fordonsnummer", "Ingen data"),
+                new XElement("Fordonsnummer", "No data"),
                 new XElement("Fordonsinnehavare",
-                    new XElement("Foretag", "Ingen data")),
+                    new XElement("Foretag", "No data")),
                 new XElement("UnderhallsansvarigtForetag",
-                    new XElement("Foretag", "Ingen data")),
-                new XElement("FordonskategoriKodFullVardeSE", "Ingen data"),
-                new XElement("FordonsunderkategoriKodFullVardeSE", "Ingen data"),
+                    new XElement("Foretag", "No data")),
+                new XElement("FordonskategoriKodFullVardeEN", "No data"),
+                new XElement("FordonsunderkategoriKodFullVardeEN", "No data"),
                 new XElement("Godkannande",
-                    new XElement("GiltigtFrom", "Ingen data"),
-                    new XElement("GiltigtTom", "Ingen data"))
+                    new XElement("FordonsgodkannandeFullVardeEN", "No data"),
+                    new XElement("GiltigtFrom", "No data"),
+                    new XElement("GiltigtTom", "No data"))
                     );
 
             var query =
@@ -58,12 +59,13 @@ namespace IIProjectService
                     let vehicleEVN = vehicle.Descendants("Fordonsnummer").FirstOrDefault().Value
                     let owner = vehicle.Descendants("Fordonsinnehavare").Elements("Foretag").FirstOrDefault().Value
                     let maintenance = vehicle.Descendants("UnderhallsansvarigtForetag").Elements("Foretag").FirstOrDefault().Value
-                    let category = vehicle.Descendants("FordonskategoriKodFullVardeSE").FirstOrDefault().Value
-                    let subcategory = vehicle.Descendants("FordonsunderkategoriKodFullVardeSE").FirstOrDefault().Value
-                    //let authBool = 
+                    let category = vehicle.Descendants("FordonskategoriKodFullVardeEN").FirstOrDefault().Value
+                    let subcategory = vehicle.Descendants("FordonsunderkategoriKodFullVardeEN").FirstOrDefault().Value
+                    let authMessage = vehicle.Descendants("FordonsgodkannandeFullVardeEN").FirstOrDefault().Value
                     let authFromDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtFrom").Value
                     let authToDate = vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom") != null ? 
-                        vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom").Value : "Ingen data"
+                        vehicle.Descendants("Godkannande").FirstOrDefault().Element("GiltigtTom").Value : "No data"
+                    //let authBool = vehicle.Descendants("FordonsgodkannandeFullVardeEN").FirstOrDefault().Value.Contains("Permanent") ? true : false
                     select
                     new XElement("Passage",
                         new XElement("VehicleEPC", vehicleEPC),
@@ -76,9 +78,9 @@ namespace IIProjectService
                             new XElement("Maintenance", maintenance),
                             new XElement("Category", category),
                             new XElement("Subcategory", subcategory),
-                            //new XElement("Authorized", authBool),
-                            new XElement("AuthorizedFromDate", authFromDate),
-                            new XElement("AuthorizedToDate", authToDate)
+                            new XElement("AuthorisedMessage", authMessage),
+                            new XElement("AuthorisedFromDate", authFromDate),
+                            new XElement("AuthorisedToDate", authToDate)
                             )
                         )
                     );
@@ -91,7 +93,7 @@ namespace IIProjectService
         {
             var tempXml = new XElement("WebClientResponse", 
                           new XElement("ServiceMessage", XDataServiceMsg),
-                          new XElement("VechilePassages", XDataPassages));
+                          new XElement("VehiclePassages", XDataPassages));
                         
             tempXml.Save(HostingEnvironment.MapPath("/App_Data/OutputXML.xml"));
         }

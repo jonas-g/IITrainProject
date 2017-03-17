@@ -29,7 +29,7 @@ namespace IIProjectClient.Models
                 new XElement("SvarsKod", AnswerCode),
                 new XElement("Meddelande", Message),
                 new XElement("Tjänstesansvarig", ServiceManager),
-                new XElement("Namn&Version", NameVersion),
+                new XElement("NamnOchVersion", NameVersion),
                 new XElement("SvarsTid", AnswerTime),
                 new XElement("Anropsansvarig", CallManager),
                 new XElement("SökArgument", SentArgument)

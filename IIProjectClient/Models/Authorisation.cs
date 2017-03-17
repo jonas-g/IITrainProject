@@ -7,7 +7,8 @@ namespace IIProjectClient.Models
 {
     public class Authorisation
     {
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string Message { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
     }
 }
