@@ -20,7 +20,7 @@ namespace IIProjectService
         XElement GetPassageInfo(DateTime fromDate, DateTime toDate, string epcLocation);
 
         [OperationContract]
-        void SaveToFile(XElement value);
+        void SaveToFile(XElement value, XElement Value2);
 
         [OperationContract]
         IEnumerable<XElement> GetEvents(DateTime fromDate, DateTime toDate, string epcLocation);

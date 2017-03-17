@@ -27,12 +27,12 @@ namespace IIProjectClient.Controllers
         [HttpPost]
         public ActionResult Index(string from, string to, string locationValue, string user)
         {
+            TrainServiceClient localService = new TrainServiceClient();
             Users users = new Users();
             ServiceMessage message = new ServiceMessage();
             message.SentArgument = "From: " + from + " To:" + to + " At:" + locationValue;
             message.CallManager = user;
             message.AnswerTime = DateTime.Now;
-            //message.SentArgument = "[0] [1] [2]", from, to, locationValue;
 
             ViewBag.DropDownValues = new SelectList(GetLocationList());
 
@@ -40,7 +40,6 @@ namespace IIProjectClient.Controllers
             {
                 message.AnswerCode = 1;
                 message.Message = "Query successful";
-                TrainServiceClient localService = new TrainServiceClient();
 
                 DateTime fromDate = new DateTime(Int32.Parse(localService.toDateTimeFormat(from)[0]), 
                     Int32.Parse(localService.toDateTimeFormat(from)[1]), 
@@ -55,9 +54,6 @@ namespace IIProjectClient.Controllers
 
                 XElement searchResult = localService.GetPassageInfo(fromDate, toDate, locationEPC);
 
-                localService.SaveToFile(searchResult);
-
-                localService.Close();
                 if (searchResult.Descendants("Error").Count() == 0)
                 {
                     List<VehiclePassage> queryPassages = new List<VehiclePassage>();
@@ -67,7 +63,7 @@ namespace IIProjectClient.Controllers
                         queryPassages.Add(VehiclePassage.fromXML(p));
                     }
                     ViewData["ServiceMessage"] = message;
-
+                    localService.SaveToFile(searchResult,message.toXML());
                     return View("Index", queryPassages);
                 }
                 else
@@ -78,16 +74,14 @@ namespace IIProjectClient.Controllers
 
                     return View();
                 }
-                
-
-                //return View();
-                
             }
+
             else
             {
                 message.AnswerCode = 3;
                 message.Message = "Autentisering misslyckades";
                 ViewData["ServiceMessage"] = message;
+
                 return View();
             }
         }
