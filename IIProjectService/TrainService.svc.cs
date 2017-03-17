@@ -87,9 +87,13 @@ namespace IIProjectService
         }
 
 
-        public void SaveToFile(XElement XData)
+        public void SaveToFile(XElement XDataPassages, XElement XDataServiceMsg)
         {
-            XData.Save(HostingEnvironment.MapPath("/App_Data/OutputXML.xml"));
+            var tempXml = new XElement("WebClientResponse", 
+                          new XElement("ServiceMessage", XDataServiceMsg),
+                          new XElement("VechilePassages", XDataPassages));
+                        
+            tempXml.Save(HostingEnvironment.MapPath("/App_Data/OutputXML.xml"));
         }
 
         //*******************Metoder som hämtar från RemoteService (mest för att korta ner kod)******************
