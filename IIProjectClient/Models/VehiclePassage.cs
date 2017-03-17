@@ -23,6 +23,7 @@ namespace IIProjectClient.Models
             VehiclePassage vehiclePassage = new VehiclePassage();
             Location location = vehiclePassage.Location;
             Vehicle vehicle = vehiclePassage.Vehicle;
+            Authorisation authorisation = vehiclePassage.Vehicle.Auth;
 
             vehiclePassage.EventTime = DateTime.ParseExact(xmlResponse.Element("Time").Value, "yyyy-MM-ddTHH:mm:ss.fffffffZ", System.Globalization.CultureInfo.InvariantCulture);
 
@@ -37,7 +38,9 @@ namespace IIProjectClient.Models
             vehicle.Maintenance = tempQuery.Element("Maintenance").Value;
             vehicle.Category = tempQuery.Element("Category").Value;
             vehicle.Subcategory = tempQuery.Element("Subcategory").Value;
-            //evetuell info om auth(godkännande)
+            authorisation.Message = tempQuery.Element("AuthorisedMessage").Value;
+            authorisation.StartDate = tempQuery.Element("AuthorisedFromDate").Value;
+            authorisation.EndDate = tempQuery.Element("AuthorisedToDate").Value;
 
             return vehiclePassage;
         }

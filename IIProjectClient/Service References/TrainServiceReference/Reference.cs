@@ -22,10 +22,10 @@ namespace IIProjectClient.TrainServiceReference {
         System.Threading.Tasks.Task<System.Xml.Linq.XElement> GetPassageInfoAsync(System.DateTime fromDate, System.DateTime toDate, string epcLocation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/SaveToFile", ReplyAction="http://tempuri.org/ITrainService/SaveToFileResponse")]
-        void SaveToFile(System.Xml.Linq.XElement value);
+        void SaveToFile(System.Xml.Linq.XElement value, System.Xml.Linq.XElement Value2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/SaveToFile", ReplyAction="http://tempuri.org/ITrainService/SaveToFileResponse")]
-        System.Threading.Tasks.Task SaveToFileAsync(System.Xml.Linq.XElement value);
+        System.Threading.Tasks.Task SaveToFileAsync(System.Xml.Linq.XElement value, System.Xml.Linq.XElement Value2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrainService/GetEvents", ReplyAction="http://tempuri.org/ITrainService/GetEventsResponse")]
         System.Xml.Linq.XElement[] GetEvents(System.DateTime fromDate, System.DateTime toDate, string epcLocation);
@@ -93,12 +93,12 @@ namespace IIProjectClient.TrainServiceReference {
             return base.Channel.GetPassageInfoAsync(fromDate, toDate, epcLocation);
         }
         
-        public void SaveToFile(System.Xml.Linq.XElement value) {
-            base.Channel.SaveToFile(value);
+        public void SaveToFile(System.Xml.Linq.XElement value, System.Xml.Linq.XElement Value2) {
+            base.Channel.SaveToFile(value, Value2);
         }
         
-        public System.Threading.Tasks.Task SaveToFileAsync(System.Xml.Linq.XElement value) {
-            return base.Channel.SaveToFileAsync(value);
+        public System.Threading.Tasks.Task SaveToFileAsync(System.Xml.Linq.XElement value, System.Xml.Linq.XElement Value2) {
+            return base.Channel.SaveToFileAsync(value, Value2);
         }
         
         public System.Xml.Linq.XElement[] GetEvents(System.DateTime fromDate, System.DateTime toDate, string epcLocation) {

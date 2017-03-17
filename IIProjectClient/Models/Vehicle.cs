@@ -15,6 +15,11 @@ namespace IIProjectClient.Models
         public string Subcategory { get; set; }
         public Authorisation Auth { get; set; }
 
-    
+        public Vehicle()
+        {
+            this.Auth = new Authorisation();
+
+        }
     }
+
 }

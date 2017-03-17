@@ -126,6 +126,16 @@ h5, h6 {
         text-decoration: none;
     }
 
+#message {
+    background-color: #999;
+    font-size: 0.75em;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+#message p {
+    margin: 0px;
+}
 
 /* main layout
 ----------------------------------------------------------*/
@@ -136,7 +146,7 @@ h5, h6 {
 }
 
 #body {
-    background-color: #aa4b41;
+    background-color: #fff;
     clear: both;
     padding-bottom: 0px;
 }
@@ -363,11 +373,16 @@ aside {
     font-weight: 700;
 }
 
+#event-wrapper {
+    width: 70%;
+}
+
 /* forms */
 fieldset {
     border: none;
     margin: 0;
     padding: 0;
+    background-color: #aa4b41;
 }
 
     fieldset legend {
