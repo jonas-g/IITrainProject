@@ -11,15 +11,15 @@
         @Scripts.Render("~/bundles/jqueryui")
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/jqueryval") 
-        <link rel="stylesheet" type="text/css" href="../../Scripts/datatables.min.css" />
+       @* <link rel="stylesheet" type="text/css" href="../../Scripts/datatables.min.css" /> *@
 
-        <script type="text/javascript" src="../../Scripts/datatables.min.js"></script>
+        <script type="text/javascript" src="../../Scripts/datatables.min.js"></script> 
     </head>
     <body>
         <header>
             <div class="content-wrapper">
-                <div>
-                    <p class="site-title">@Html.ActionLink("TÅGSAMMANSÄTTNINGSINFORMATIONSSÖKTJÄNST", "Index", "Home")</p>
+                <div class="site-title">
+                    <a href="" class="logo" alt="Train tracker logo">Home</a>
                 </div>
             </div>
         </header>
@@ -33,6 +33,7 @@
             <div class="content-wrapper">
                 <div class="float-left">
                     <p>&copy; @DateTime.Now.Year - Brodd, Gabrielson, Lundberg, Söderström</p>
+                    <img alt="Train tracker logo" src="../images/logoimg.png" />
                 </div>
             </div>
         </footer>

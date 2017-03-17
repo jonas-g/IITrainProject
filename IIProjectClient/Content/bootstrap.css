@@ -229,13 +229,11 @@ th {
     max-width: 100% !important;
   }
   p,
-  h2,
-  h3 {
+  h2{
     orphans: 3;
     widows: 3;
   }
-  h2,
-  h3 {
+  h2{
     page-break-after: avoid;
   }
   .navbar {
@@ -1173,13 +1171,11 @@ hr {
 }
 h1,
 h2,
-h3,
 h4,
 h5,
 h6,
 .h1,
 .h2,
-.h3,
 .h4,
 .h5,
 .h6 {
@@ -1190,25 +1186,21 @@ h6,
 }
 h1 small,
 h2 small,
-h3 small,
 h4 small,
 h5 small,
 h6 small,
 .h1 small,
 .h2 small,
-.h3 small,
 .h4 small,
 .h5 small,
 .h6 small,
 h1 .small,
 h2 .small,
-h3 .small,
 h4 .small,
 h5 .small,
 h6 .small,
 .h1 .small,
 .h2 .small,
-.h3 .small,
 .h4 .small,
 .h5 .small,
 .h6 .small {
@@ -1219,9 +1211,7 @@ h6 .small,
 h1,
 .h1,
 h2,
-.h2,
-h3,
-.h3 {
+.h2{
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -1229,14 +1219,10 @@ h1 small,
 .h1 small,
 h2 small,
 .h2 small,
-h3 small,
-.h3 small,
 h1 .small,
 .h1 .small,
 h2 .small,
-.h2 .small,
-h3 .small,
-.h3 .small {
+.h2 .small{
   font-size: 65%;
 }
 h4,

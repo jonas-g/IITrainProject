@@ -19,25 +19,26 @@
         <fieldset>
             <div id="menu">
                 <div id="userName">
-                    <h3>User name</h3>
+                    <h3>User name: </h3>
                     <p>@Html.TextBox("user", null, new { @class = "inputfields" })</p>
                 </div>
                 <div id="location">
+                    <h3>Location: </h3>
                     @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues, new { id = "dropDown" })
                 </div>
                 <div id="fromDate">
-                    <h3>From date</h3>
+                    <h3>From date: </h3>
                     <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
                 </div>
                 <div id="toDate">
-                    <h3>To date</h3>
+                    <h3>To date: </h3>
                     <p>@Html.TextBox("to", null, new { @class = "datePicker" })</p>
                 </div>
                 <div id="submitBtn">
                     <input id="submitButton" type="submit" value="Search" />
                 </div>
             </div>
-    }
+    
         @if (Model != null)
         {
            <table id="events" class="table table-striped table-bordered" cellspacing="0" width="100%">

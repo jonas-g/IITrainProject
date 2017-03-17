@@ -27,7 +27,6 @@ namespace IIProjectClient
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                        "~/Content/site.css",
                         "~/Content/themes/base/jquery-ui.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",
                         "~/Content/themes/base/jquery.ui.selectable.css",
@@ -40,7 +39,8 @@ namespace IIProjectClient
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css",
-                        "~/Content/bootstrap.css"));
+                        "~/Content/bootstrap.css",
+                        "~/Content/site.css"));
 
         }
     }

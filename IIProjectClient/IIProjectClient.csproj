@@ -256,6 +256,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\HeaderLogo.png" />
+    <Content Include="Images\LogoImg.png" />
     <Content Include="Properties\DataSources\System.Xml.Linq.XElement.datasource" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
