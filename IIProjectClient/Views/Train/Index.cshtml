@@ -14,23 +14,23 @@
 
         <fieldset>
             <div id="menu">
-                <div id="userName">
+                <div class="col-1">
                     <h3>User name: </h3>
                     <p>@Html.TextBox("user", null, new { @class = "inputfields" })</p>
                 </div>
-                <div id="location">
+                <div class="col-2">
                     <h3>Location: </h3>
                     @Html.DropDownList("locationValue", (SelectList)ViewBag.DropDownValues, new { id = "dropDown" })
                 </div>
-                <div id="fromDate">
+                <div class="col-3">
                     <h3>From date: </h3>
                     <p>@Html.TextBox("from", null, new { @class = "datePicker" })</p>
                 </div>
-                <div id="toDate">
+                <div class="col-4">
                     <h3>To date: </h3>
                     <p>@Html.TextBox("to", null, new { @class = "datePicker" })</p>
                 </div>
-                <div id="submitBtn">
+                <div class="col-5">
                     <input id="submitButton" type="submit" value="Search" />
                 </div>
             </div>

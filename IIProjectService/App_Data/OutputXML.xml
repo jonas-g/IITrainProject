@@ -6,7 +6,7 @@
       <Meddelande>Query successful</Meddelande>
       <Tjänstesansvarig>Tågsammansättningsinformationstjänst.se</Tjänstesansvarig>
       <NamnOchVersion>Tågsammansättningsinformationstjänsteappen v.1.1.1.1</NamnOchVersion>
-      <SvarsTid>2017-03-17T13:06:30.3728117+01:00</SvarsTid>
+      <SvarsTid>2017-03-19T19:52:01.7650088+01:00</SvarsTid>
       <Anropsansvarig>Magnus</Anropsansvarig>
       <SökArgument>From: 2011/3/29, To:2011/3/30, At:Pölsebo</SökArgument>
     </TjänsteMeddelande>
